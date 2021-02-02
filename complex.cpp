@@ -2,8 +2,8 @@
 using namespace std;
 
 struct CN{
-    int r;
-    int c;
+    double r;
+    double c;
 };
 
 struct CN add(struct CN a, struct CN b){
@@ -21,16 +21,22 @@ struct CN mul(struct CN a, struct CN b){
     return res;
 }
 
-// struct CN div(struct CN a, struct CN b){
-//     struct CN res = {a.r+b.r,a.c+b.c};
-// }
+struct CN div(struct CN a, struct CN b){
+    struct CN res = {(a.r*b.r+a.c*b.c)/(b.r*b.r+b.c*b.c),(a.c*b.r-a.r*b.c)/(b.r*b.r+b.c*b.c)};
+    return res;
+}
 
 void printCN(struct CN a){
     cout<<a.r<<" + "<<a.c<<"i"<<endl;
 }
 
 int main(){
-    printCN(mul({3,2},{1,7}));
+    struct CN num1;
+    num1.r = 7;
+    num1.c = -6;
+    printCN(div({7,-6},{2,-3}));
+    
+    // cout<<(11./2)<<endl;
 
     return 0;
 }
