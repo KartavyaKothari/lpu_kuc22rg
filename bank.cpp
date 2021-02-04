@@ -47,6 +47,14 @@ class Account{
         last_transac = -1;
     }
 
+    void change_pass(){
+        if(!check_pass())
+            return;
+        
+        cout<<"Enter new password: ";
+        cin>>pass;
+    }
+
     void check_balance(){
         if(!check_pass()) return;
         
@@ -122,16 +130,54 @@ int main(){
 
     Account p1(1234);
 
-    p1.check_balance();
-    p1.add_money(100);
-    p1.add_money(100);
-    p1.withdraw_money(57);
-    p1.check_balance();
-    p1.add_money(100);
-    p1.withdraw_money(57);
-    p1.add_money(100);
-    p1.withdraw_money(57);
-    p1.update_passbook();
+    while(true){
+        cout<<"1. Withdraw money"<<endl;
+        cout<<"2. Deposit money"<<endl;
+        cout<<"3. Print transaction history"<<endl;
+        cout<<"4. Check balance"<<endl;
+        cout<<"5. Change password"<<endl;
+        cout<<"6. Exit"<<endl;
+
+        cout<<"Enter option: ";
+
+        int res,amt;
+        cin>>res;
+
+        switch (res){
+            case 1:
+                cout<<"Enter amt: ";
+                cin>>amt;
+                p1.withdraw_money(amt);
+                break;
+            case 2:
+                cout<<"Enter amt: ";
+                cin>>amt;
+                p1.add_money(amt);
+                break;
+            case 3:
+                p1.update_passbook();
+                break;
+            case 4:
+                p1.check_balance();
+                break;
+            case 5:
+                p1.change_pass();
+                break;
+            case 6:
+                return 0;
+        }
+    }
+
+    // p1.check_balance();
+    // p1.add_money(100);
+    // p1.add_money(100);
+    // p1.withdraw_money(57);
+    // p1.check_balance();
+    // p1.add_money(100);
+    // p1.withdraw_money(57);
+    // p1.add_money(100);
+    // p1.withdraw_money(57);
+    // p1.update_passbook();
 
     return 0;
 }
