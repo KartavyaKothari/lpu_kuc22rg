@@ -39,6 +39,13 @@ class Account{
     // }
 
     public:
+    // Account(int acc):
+    //     acc_num(acc),
+    //     balance(100),
+    //     num_trasac(0),
+    //     pass("pass@123"),
+    //     last_transac(-1)
+    // {}
     Account(int acc){
         acc_num = acc;
         balance = 100;
@@ -47,13 +54,8 @@ class Account{
         last_transac = -1;
     }
 
-    void change_pass(){
-        if(!check_pass())
-            return;
-        
-        cout<<"Enter new password: ";
-        cin>>pass;
-    }
+    // Implemented outside the class
+    void change_pass();
 
     void check_balance(){
         if(!check_pass()) return;
@@ -108,6 +110,14 @@ class Account{
         cout<<"************************"<<endl;
     }
 };
+
+void Account::change_pass(){
+    if(!check_pass())
+        return;
+    
+    cout<<"Enter new password: ";
+    cin>>pass;
+}
 
 int main(){
     // Withdraw money
