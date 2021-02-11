@@ -14,12 +14,14 @@ int num_failed(int arr[3]){
     return cnt;
 }
 
+struct StudentRecord{
+    int roll;
+    string name;
+    int marks[3];
+};
+
 int main(){
-    struct StudentRecord{
-        int roll;
-        string name;
-        int marks[3];
-    } records[5] = {
+    struct StudentRecord records[5] = {
         {1,"kartavya",{34,99,39}},
         {2,"Rishabh",{64,99,39}},
         {3,"Muskan",{43,9,33}},
