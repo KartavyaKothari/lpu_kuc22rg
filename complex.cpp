@@ -34,6 +34,7 @@ int main(){
     struct CN num1;
     num1.r = 7;
     num1.c = -6;
+    
     printCN(div({7,-6},{2,-3}));
     
     // cout<<(11./2)<<endl;

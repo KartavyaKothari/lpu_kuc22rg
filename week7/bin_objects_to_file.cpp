@@ -20,6 +20,7 @@ int main(){
 
     for(int i = 0 ; i < 3 ; i++){
         // my_f<<deets[i].name<<" "<<deets[i].age<<endl;
+        // void *ptr = &deets[i]
         my_f.write((char *) &deets[i],sizeof(Student));
     }
 
