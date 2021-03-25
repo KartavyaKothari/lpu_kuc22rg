@@ -1,40 +1,34 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Temperature{
-    int temp;
+class ComplexNumber{
     public:
-    Temperature():temp(0){}
+    double r;
+    double c;
+    ComplexNumber():r(0),c(0){}
+    ComplexNumber(double r, double c):r(r),c(c){}
+
+    void display(){
+        cout<<r<<"+"<<c<<"i"<<endl;
+    }
+
     void operator ++(){
-        temp+=4;
+        r++;
+        c++;
     }
+
     void operator --(){
-        temp-=4;
-    }
-
-    void operator -(){
-        temp= temp*-1;
-    }
-
-    void thermometer(){
-        cout<<temp<<endl;
+        r--;
+        c--;
     }
 };
 
 int main(){
-    Temperature t;
-    t.thermometer();
+    ComplexNumber num1(3,4);
+    ComplexNumber num2(1,2);
 
-    ++t;
-    t.thermometer();
-
-    --t;
-    t.thermometer();
-
-    ++t;
-    ++t;
-    -t;
-    t.thermometer();
-
-    return 0;
+    ++num1;
+    num1.display();
+    --num1;
+    num1.display();
 }

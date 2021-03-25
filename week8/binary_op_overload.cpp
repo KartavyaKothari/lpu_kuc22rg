@@ -1,46 +1,38 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class CN{
+class ComplexNumber{
     public:
     double r;
     double c;
+    ComplexNumber():r(0),c(0){}
+    ComplexNumber(double r, double c):r(r),c(c){}
 
-    CN(double r, double c):r(r),c(c){}
+    void display(){
+        cout<<r<<"+"<<c<<"i"<<endl;
+    }
 
-    CN operator+(const CN &n){
-        double real = this->r + n.r;
-        double compl = this->c + n.c;
+    ComplexNumber operator +(ComplexNumber b){
+        double real = r+b.r;
+        double comp = c+b.c;
+        ComplexNumber res(real,comp);
 
-        return CN(real,compl);
+        return res;
+    }
+
+    ComplexNumber operator -(ComplexNumber b){
+        return ComplexNumber(r-b.r,c-b.c);
     }
 };
 
-// struct CN add(struct CN a, struct CN b){
-//     struct CN res = {a.r+b.r,a.c+b.c};
-//     return res;
-// }
-
-// struct CN sub(struct CN a, struct CN b){
-//     struct CN res = {a.r-b.r,a.c-b.c};
-//     return res;
-// }
-
-// struct CN div(struct CN a, struct CN b){
-//     struct CN res = {(a.r*b.r+a.c*b.c)/(b.r*b.r+b.c*b.c),(a.c*b.r-a.r*b.c)/(b.r*b.r+b.c*b.c)};
-//     return res;
-// }
-
-void printCN(CN a){
-    cout<<a.r<<" + "<<a.c<<"i"<<endl;
-}
 
 int main(){
-    CN num1(7,-6);
-    CN num2(2,-3);
+    ComplexNumber num1(3,4);
+    ComplexNumber num2(1,2);
 
-    printCN(num1+num2);
-    // printCN(num2);
+    ComplexNumber num3 = num1 + num2;
+    ComplexNumber num4 = num1 - num2;
     
-    return 0;
+    num3.display();
+    num4.display();
 }
