@@ -23,6 +23,7 @@ int main(){
     Time t;
     t = time_in_mins;
     t.display();
+    t = time_in_mins;
 
     return 0;
 }
