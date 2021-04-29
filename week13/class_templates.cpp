@@ -19,10 +19,13 @@ class Calculator{
         return x-y;
     }
 
-    TYPE mul(){
-        return x*y;
-    }
+    TYPE mul();
 };
+
+template <class MY_T>
+MY_T Calculator<MY_T>::mul(){
+    return x*y;
+}
 
 int main(){
     Calculator <double> c(10.5,20.12);
